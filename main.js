@@ -1,4 +1,5 @@
 const input = require("sync-input");
+
 console.log("Welcome to Currency Converter!");
 currencies = {
   USD: 1.0,
@@ -7,6 +8,7 @@ currencies = {
   RUB: 74.36,
   GBP: 0.75,
 };
+
 function printCurrencies() {
   for (let i = 1; i < Object.keys(currencies).length - 1; i++) {
     process.stdout.write(Object.keys(currencies)[i] + ", ");
