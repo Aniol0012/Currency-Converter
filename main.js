@@ -1,6 +1,5 @@
 const input = require("sync-input");
 console.log("Welcome to Currency Converter!");
-
 currencies = {
   USD: 1.0,
   JPY: 113.5,
@@ -8,16 +7,24 @@ currencies = {
   RUB: 74.36,
   GBP: 0.75,
 };
+function printCurrencies() {
+  for (let i = 1; i < Object.keys(currencies).length - 1; i++) {
+    process.stdout.write(Object.keys(currencies)[i] + ", ");
+  }
+  process.stdout.write("USD, ");
+  console.log(Object.keys(currencies)[Object.keys(currencies).length - 1]);
+}
 
 function getCurrencyPosition(currency) {
-  for (let i = 0; i < Object.keys(currencies)[i].length; i++) {
+  if (!(currency in currencies)) {
+    console.log("Unknown currency");
+    return false;
+  }
+  for (let i = 0; i <= Object.keys(currencies)[i].length + 1; i++) {
     if (currency === Object.keys(currencies)[i]) {
       return i;
     }
   }
-  //console.log(currency + " is not a valid currency");
-  console.log("Unknown currency");
-  return false;
 }
 
 function check_returncode(given_function) {
@@ -71,11 +78,3 @@ console.log(
     " " +
     currency
 );
-
-function printCurrencies() {
-  for (let i = 1; i < Object.keys(currencies).length - 1; i++) {
-    process.stdout.write(Object.keys(currencies)[i] + ", ");
-  }
-  process.stdout.write("USD, ");
-  console.log(Object.keys(currencies)[Object.keys(currencies).length - 1]);
-}
